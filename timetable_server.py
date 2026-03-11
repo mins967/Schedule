@@ -2,6 +2,7 @@ import requests
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import time
+import os
 
 app = Flask(__name__)
 CORS(app)  # CORS 문제 해결
@@ -143,6 +144,7 @@ def proxy_timetable():
 
 
 if __name__ == "__main__":
-    # 예: http://127.0.0.1:5000/api/timetable?period=1
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    # Railway 환경에서는 PORT 환경변수 사용, 로컬에서는 5000 포트 사용
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
 
