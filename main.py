@@ -51,3 +51,4 @@ for i, (subject, room) in enumerate(subjects):
 data = {"students": students}
 
 print(json.dumps(data, ensure_ascii=False, indent=2))
+print("김현성 병신")
